@@ -3,10 +3,10 @@
 Group Project Collab Part A
 
 **Links:**
-    NodeJS Express Server/API - http://localhost:3030/
-    React Client - http://localhost:3000/
-    MySQL Admin Console - http://localhost:8000/
-    MYSql Databse - http://localhost:3306/
+    - NodeJS Express Server/API - http://localhost:3030/
+    - React Client - http://localhost:3000/
+    - MySQL Admin Console - http://localhost:8000/
+    - MYSql Databse - http://localhost:3306/
 
 docker-compose commands:
 - docker-compose build      // builds from the docker-compose.yml file
