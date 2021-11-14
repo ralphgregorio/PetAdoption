@@ -1,1 +1,7 @@
-const mysql = require('mysql');
+const sql = require('./connectDB');
+
+module.exports = {
+
+
+    
+}
