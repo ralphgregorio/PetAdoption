@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `fname` varchar(50) NOT NULL,
   `lname` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `adopted_pet_id` varchar(50) NOT NULL,
+  `adopted_pet_id` int(11) NOT NULL,
   `timestamp` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 );
@@ -20,9 +20,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 CREATE TABLE IF NOT EXISTS `pet` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `pet_name` varchar(50) NOT NULL,
-  `age` varchar(50) NOT NULL,
+  `age` int(11) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `breed` varchar(50) NOT NULL,
+  `breed` varchar(255) NOT NULL,
   `url` varchar(255) NOT NULL,
   `adopted` boolean NOT NULL,
   PRIMARY KEY (`id`)
