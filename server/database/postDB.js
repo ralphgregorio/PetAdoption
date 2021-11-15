@@ -10,7 +10,7 @@ module.exports = {
      * @param {String} pass Password for staff account
      */
     createStaff: (fname, lname, username, pass) => {
-        let insert = `INSERT INTO staff (fname, lname, username, password) 
+        let insert = `INSERT INTO staff (fname, lname, username, pass) 
         VALUES ('${fname}','${lname}','${username}','${pass}')`
         sql.query(insert, (err, result) => {
             if (err){

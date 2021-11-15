@@ -14,19 +14,20 @@ const HOST = '0.0.0.0';
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// To test curl -d "fname=ralph&lname=gregorio&username=hiiii&pass=123" -X POST http://localhost:3030/api/createStaff
 app.post('/api/createStaff', (req,res) => {
     if (!req.body.fname || !req.body.lname || !req.body.username
-    || !req.body.password){
+    || !req.body.pass){
         console.log(`Empty body request in createStaff, post failed`);
         res.sendStatus(400);
     } else {
         util.exists("staff","username",req.body.username, (err, result) => {
-            if (err || result == 1){
+            if (err || result == true){
                 console.log(`Staff already exists in table, post failed`);
                 res.sendStatus(400);
             } else {
                 create.createStaff(req.body.fname, 
-                    req.body.lname,req.body.username,req.body.password);
+                    req.body.lname,req.body.username,req.body.pass);
                 res.sendStatus(200);
             }
         })

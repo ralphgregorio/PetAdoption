@@ -3,11 +3,11 @@ const sql = require('./connectDB');
 module.exports = {
 
     /**
-     * Checks if value exists in table, returns 1 if true otherwise 0 if false
+     * Checks if value exists in table, returns true if exists otherwise false is returned
      * @param {String} table Table in current databse
      * @param {String} column Column in table
      * @param {String} value Value in column
-     * @param {String} callback Callback function returns result (err, result)
+     * @param {String} callback Callback function returns result (err, result), result is a boolean
      */
     exists: (table, column, value, callback) => {
         let filter = `SELECT * FROM ${table} WHERE ${column}='${value}'`
@@ -17,9 +17,9 @@ module.exports = {
                 callback(err, null);
             } else {
                 if (result.length == 0){
-                    callback(null, 0);
+                    callback(null, false);
                 } else {
-                    callback(null, 1);
+                    callback(null, true);
                 }
             }
         });
