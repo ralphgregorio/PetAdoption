@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS `staff` (
   `fname` varchar(50) NOT NULL,
   `lname` varchar(50) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `pass` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 );
 
@@ -27,3 +27,7 @@ CREATE TABLE IF NOT EXISTS `pet` (
   `adopted` boolean NOT NULL,
   PRIMARY KEY (`id`)
 );
+
+-- Initialize staff table with a staff user
+INSERT INTO `staff` (fname, lname, username, pass) 
+VALUES ('rootstaff','admin','admin','admin');
