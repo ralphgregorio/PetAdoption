@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS `pet` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `pet_name` varchar(50) NOT NULL,
   `age` varchar(50) NOT NULL,
+  `description` varchar(255) NOT NULL,
   `breed` varchar(50) NOT NULL,
   `url` varchar(255) NOT NULL,
   `adopted` boolean NOT NULL,
