@@ -19,7 +19,35 @@ module.exports = {
                 console.log('successful creation of staff in table');
             }
         });
+    },
+
+    createUser: (fname, lname, email, petID) => {
+        let date = new Date()
+        date = date.toISOString()
+        let insert = `INSERT INTO user (fname, lname, email, adopted_pet_id, timestamp) 
+        VALUES ('${fname}','${lname}','${email}','${petID}','${date}')`
+        sql.query(insert, (err, result) => {
+            if (err){
+                console.log(`creating user error: ${err}`);
+            } else {
+                console.log('successful creation of user in table');
+            }
+        });
+    },
+
+    createPet: (pname, age, desc, breed, url, adopted) => {
+        let insert = `INSERT INTO pet (pet_name, age, description, breed, url, adopted) 
+        VALUES ('${pname}','${age}','${desc}','${breed}','${url}','${adopted}')`
+        sql.query(insert, (err, result) => {
+            if (err){
+                console.log(`creating pet error: ${err}`);
+            } else {
+                console.log('successful creation of pet in table');
+            }
+        });
     }
+
+    
 
     
 }

@@ -7,7 +7,6 @@ const path = require('path');
 const create = require('./database/postDB');
 const util = require('./database/utilityDB');
 
-
 const PORT = 3030;
 const app = express();
 const HOST = '0.0.0.0';
