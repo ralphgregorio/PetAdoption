@@ -7,7 +7,7 @@ module.exports = {
      * @param {String} table Table in current databse
      * @param {String} column Column in table
      * @param {String} value Value in column
-     * @param {String} callback Callback function returns result (err, result), result is a boolean
+     * @param {Function} callback Callback function returns result (err, result), result is a boolean
      */
     exists: (table, column, value, callback) => {
         let filter = `SELECT * FROM ${table} WHERE ${column}='${value}'`

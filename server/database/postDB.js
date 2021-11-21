@@ -21,6 +21,13 @@ module.exports = {
         });
     },
 
+    /**
+     * Creates user in user table in projectDatabase sql
+     * @param {String} fname First name of user
+     * @param {String} lname Last name of user
+     * @param {String} email Email of user
+     * @param {Number} petID Integer ID of pet
+     */
     createUser: (fname, lname, email, petID) => {
         let date = new Date()
         date = date.toISOString()
@@ -34,8 +41,23 @@ module.exports = {
             }
         });
     },
-
+    
+    /**
+     * Creates pet in pet table in projectDatabase sql
+     * @param {String} pname Name of pet
+     * @param {Number} age Age of pet
+     * @param {String} desc Description of pet
+     * @param {String} breed Breed of pet
+     * @param {String} url Direct url to pet image
+     * @param {Boolean} adopted true if adopted, otherwise false
+     */
     createPet: (pname, age, desc, breed, url, adopted) => {
+        if (adopted == true || adopted === "true"){
+            adopted = 1
+        } else {
+            adopted = 0
+        }
+
         let insert = `INSERT INTO pet (pet_name, age, description, breed, url, adopted) 
         VALUES ('${pname}','${age}','${desc}','${breed}','${url}','${adopted}')`
         sql.query(insert, (err, result) => {
@@ -46,8 +68,4 @@ module.exports = {
             }
         });
     }
-
-    
-
-    
 }
