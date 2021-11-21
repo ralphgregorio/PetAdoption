@@ -20,10 +20,11 @@ module.exports = {
         });
     },
     
-    
-       /**
+    /**
      * Deletes pet in pet table in projectDatabase sql
-     * @param {String} petname name of Pet
+     * @param {String} pet_name name of Pet
+     * @param {Integer} age Age of Pet
+     * @param {String} breed Breed of pet
      */
    deletePet: (pet_name,age,breed) => {
         
@@ -37,11 +38,10 @@ module.exports = {
         });
     },
     
-    
-    
-          /**
+    /**
      * Deletes user(adoptive owner) in projectDatabase sql
-     * @param {String} name name of Pet
+     * @param {*} fname First name of user
+     * @param {*} lname Last name of user
      */
    deleteUser: (fname,lname) => {
         

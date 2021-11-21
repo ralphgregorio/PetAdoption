@@ -28,7 +28,7 @@ const Pet = ({pet}) => {
             },
             method: "post",
         }).then( (response) => {
-            if (response.status == 400){
+            if (response.status === 400){
                 handleFail();
             } else {
                 handleSuccess();
@@ -36,7 +36,8 @@ const Pet = ({pet}) => {
         });
 
 
-        setShow(false)};
+        setShow(false)
+    };
 
   
 

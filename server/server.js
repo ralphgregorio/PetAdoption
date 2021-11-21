@@ -74,12 +74,8 @@ app.post('/api/createPet', (req,res) => {
     };
 });
 
-app.delete('/test', (req,res) => {
-    del.deleteStaff("rootstaff","admin")
-
-})
 app.get('/', (req,res) => {
-    res.send("test");
+    res.send("Server up");
 });
 
 app.listen(PORT, HOST);

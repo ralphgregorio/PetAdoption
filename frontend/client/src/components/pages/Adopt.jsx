@@ -1,5 +1,4 @@
-import React, {Comp} from "react";
-import {useState, useEffect } from 'react';
+import React from "react";
 import '../navbar/Nav.css'
 import './Main.css'
 import '../Pet.css'
@@ -12,8 +11,8 @@ class Adopt extends React.Component {
   {
     fetch('http://localhost:3030/api/get/pet?column=pet_name&orderby=asc&adopted=false')
       .then((response) => response.json())
-      .then((finalResponse) =>{
-          this.setState({ data: finalResponse, isLoading:false })
+      .then((response) =>{
+          this.setState({ data: response, isLoading:false })
       })
   }
   state = {
