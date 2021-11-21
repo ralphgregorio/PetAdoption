@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+div {
+    font-family: 'Montserrat', sans-serif; 
+}
 .NavbarItems {
     background-color: lightseagreen;
     height: 80px;

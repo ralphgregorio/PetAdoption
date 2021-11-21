@@ -31,3 +31,12 @@ CREATE TABLE IF NOT EXISTS `pet` (
 -- Initialize staff table with a staff user
 INSERT INTO `staff` (fname, lname, username, pass) 
 VALUES ('rootstaff','admin','admin','admin');
+
+INSERT INTO `pet` (pet_name, age, description, breed, url, adopted) 
+VALUES ('Bruno',2,'A dog that is really big',
+'German shepherd', 'https://www.akc.org/wp-content/uploads/2017/11/German-Shepherd-on-White-00.jpg',0);
+
+INSERT INTO `pet` (pet_name, age, description, breed, url, adopted) 
+VALUES ('Blinded',1,'A dog that is really small',
+'Shitzu', 'https://dogtime.com/assets/uploads/gallery/shih-tzu-dog-breed-pictures/shih-tzu-breed-picture-1.jpg',1);
+

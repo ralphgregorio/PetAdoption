@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'semantic-ui-css/semantic.min.css'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
   Navigation,
@@ -12,9 +13,13 @@ import {
   Footer,
   Home,
   Login,
+  RegisterUser,
 } from "./components/pages"
+import 'bootstrap/dist/css/bootstrap.min.css'; 
+
 
 ReactDOM.render(
+  
   <Router>
     <Navigation />
     <Routes>
@@ -23,8 +28,9 @@ ReactDOM.render(
       <Route path="/contact" element={<Contact />} />
       <Route path="/adopt" element={<Adopt />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<RegisterUser title="Testing Form"/>} />
     </Routes>
-    <Footer />
+
   </Router>,
 
   document.getElementById('root')

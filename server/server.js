@@ -1,19 +1,20 @@
 'use strict';
 
 const bodyParser = require("body-parser");
-const e = require("express");
 const express = require('express');
 const path = require('path');
 const create = require('./database/postDB');
 const del = require('./database/deleteDB');
 const util = require('./database/utilityDB');
 const gettable = require('./database/getDB')
+const cors = require('cors')
 
 const PORT = 3030;
 const app = express();
 const HOST = '0.0.0.0';
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 // To test curl -d "fname=ralph&lname=gregorio&username=hiiii&pass=123" -X POST http://localhost:3030/api/createStaff
 app.post('/api/createStaff', (req,res) => {

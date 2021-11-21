@@ -17,7 +17,7 @@ function Navigation() {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="nav-links" to="/about">
+                  <NavLink className="nav-links" to="/about" >
                     About
                   </NavLink>
                 </li>
