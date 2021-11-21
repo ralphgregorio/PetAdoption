@@ -10,7 +10,7 @@ module.exports = {
      * @param {String} pass Password for staff account
      */
    deleteStaff: (fname,lname) => {
-       let deletestaff = `DELETE FROM staff where fname = ('${fname}') AND lname=('${lname}')`
+        let deletestaff = `DELETE FROM staff where fname = ('${fname}') AND lname=('${lname}')`
         sql.query(deletestaff, (err, result) => {
             if (err){
                 console.log(`delete staff error: ${err}`);
@@ -28,7 +28,7 @@ module.exports = {
      */
    deletePet: (pet_name,age,breed) => {
         
-         let deletepet = `DELETE FROM pets WHERE pet_name=('${pet_name}') AND age=('${age}') AND breed=('${breed}')`
+        let deletepet = `DELETE FROM pets WHERE pet_name=('${pet_name}') AND age=('${age}') AND breed=('${breed}')`
         sql.query(deletepet, (err, result) => {
             if (err){
                 console.log(`delete pet error: ${err}`);
@@ -40,12 +40,12 @@ module.exports = {
     
     /**
      * Deletes user(adoptive owner) in projectDatabase sql
-     * @param {*} fname First name of user
-     * @param {*} lname Last name of user
+     * @param {String} fname First name of user
+     * @param {String} lname Last name of user
      */
    deleteUser: (fname,lname) => {
         
-         let deleteuser = `DELETE FROM users WHERE fname=('${fname}') AND lname=('${lname}')`
+        let deleteuser = `DELETE FROM users WHERE fname=('${fname}') AND lname=('${lname}')`
         sql.query(deleteuser, (err, result) => {
             if (err){
                 console.log(`delete user error: ${err}`);

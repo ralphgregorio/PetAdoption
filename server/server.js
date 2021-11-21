@@ -16,6 +16,28 @@ const HOST = '0.0.0.0';
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
+app.get('/api/get/:table', (req,res) => {
+    const filter = {col:`${req.query.column}`, order:`${req.query.orderby}`, adopted:`${req.query.adopted}`}
+    gettable.getAll(req.params.table,filter, (err, result) => {
+        if (err){
+            res.send(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+app.get('/api/getParents', (req,res) => {
+    gettable.getRelated((err, result) => {
+        if (err){
+            res.send(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+
 // To test curl -d "fname=ralph&lname=gregorio&username=hiiii&pass=123" -X POST http://localhost:3030/api/createStaff
 app.post('/api/createStaff', (req,res) => {
     if (!req.body.fname || !req.body.lname || !req.body.username
@@ -35,17 +57,6 @@ app.post('/api/createStaff', (req,res) => {
             }
         })
     };
-});
-
-app.get('/api/get/:table', (req,res) => {
-    const filter = {col:`${req.query.column}`, order:`${req.query.orderby}`, adopted:`${req.query.adopted}`}
-    gettable.getAll(req.params.table,filter, (err, result) => {
-        if (err){
-            res.send(err);
-        } else {
-            res.send(result);
-        }
-    });
 });
 
 // To test curl -d "fname=ralph&lname=gregorio&email=test@gmail.com&petID=21" -X POST http://localhost:3030/api/createUser

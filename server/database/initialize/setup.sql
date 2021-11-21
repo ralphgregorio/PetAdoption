@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `pet` (
 
 -- Initialize staff table with a staff user
 INSERT INTO `staff` (fname, lname, username, pass) 
-VALUES ('rootstaff','admin','admin','admin');
+VALUES ('rootstaff','root','admin','admin');
 
 INSERT INTO `pet` (pet_name, age, description, breed, url, adopted) 
 VALUES ('Bruno',2,'A dog that is really big',
