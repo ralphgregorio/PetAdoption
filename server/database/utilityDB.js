@@ -4,7 +4,7 @@ module.exports = {
 
     /**
      * Checks if value exists in table, returns true if exists otherwise false is returned
-     * @param {String} table Table in current databse
+     * @param {String} table Table in current database
      * @param {String} column Column in table
      * @param {String} value Value in column
      * @param {Function} callback Callback function returns result (err, result), result is a boolean

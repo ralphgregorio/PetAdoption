@@ -2,7 +2,13 @@ const sql = require('./connectDB');
 
 module.exports = {
 
-    getData: (table, filter, callback) => {
+    /**
+     * Gets all values from specified table with filter options
+     * @param {String} table Table to grab values from
+     * @param {Object} filter filter options are col={columnName}, adopted={true/false}, and order={asc/desc}.
+     * @param {err,result} callback Callback function returns err result
+     */
+    getAll: (table, filter, callback) => {
         let query;
         query = `SELECT * FROM ${table} `
         if (table === "pet" && filter.adopted != "undefined"){

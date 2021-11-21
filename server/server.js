@@ -38,7 +38,7 @@ app.post('/api/createStaff', (req,res) => {
 
 app.get('/api/get/:table', (req,res) => {
     const filter = {col:`${req.query.column}`, order:`${req.query.orderby}`, adopted:`${req.query.adopted}`}
-    gettable.getData(req.params.table,filter, (err, result) => {
+    gettable.getAll(req.params.table,filter, (err, result) => {
         if (err){
             res.send(err);
         } else {
