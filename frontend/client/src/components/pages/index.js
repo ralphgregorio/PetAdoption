@@ -6,3 +6,4 @@ export { default as Contact } from "./Contact";
 export { default as Adopt } from "./Adopt";
 export { default as Login } from "./Login";
 export { default as NotFound } from "./NotFound";
+export { default as AdoptForm } from "./AdoptForm";

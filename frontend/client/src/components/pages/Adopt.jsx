@@ -1,9 +1,8 @@
 import React from "react";
 import '../navbar/Nav.css'
 import './Main.css'
-import '../Pet.css'
+import '../css/card.css'
 import Pet from "../PetCard.jsx";
-import { Spinner } from 'react-bootstrap';
 
 class Adopt extends React.Component {
 
@@ -23,9 +22,7 @@ class Adopt extends React.Component {
 
   render() {
     if(this.state.isLoading) { 
-      return(<div className ="load"><Spinner animation="border" role="status" size="lrg" >
-      <span className="visually-hidden">Loading...</span>
-    </Spinner></div>); 
+      return(<h1>Loading...</h1>); 
     }
       return(
           <div className="main">

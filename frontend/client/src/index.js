@@ -13,6 +13,7 @@ import {
   Home,
   Login,
   NotFound,
+  AdoptForm,
 } from "./components/pages"
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 
@@ -27,6 +28,7 @@ ReactDOM.render(
       <Route path="/contact" element={<Contact />} />
       <Route path="/adopt" element={<Adopt />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/adoptForm" element={<AdoptForm />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
 
