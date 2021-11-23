@@ -10,7 +10,7 @@ const Pet = ({pet}) => {
       <div class="card">
         <img src={pet.url} class="imageCard"></img>
         <div class="containerCard">
-          <h4>{pet.pet_name}</h4>
+          <h4>{pet.pet_name} - {pet.age} years old</h4>
           <h6>Breed: {pet.breed}</h6>
           <p>{pet.description}</p>
           
