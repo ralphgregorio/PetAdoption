@@ -6,6 +6,7 @@ const path = require('path');
 const create = require('./database/postDB');
 const del = require('./database/deleteDB');
 const util = require('./database/utilityDB');
+const update = require('./database/updateDB');
 const gettable = require('./database/getDB')
 const cors = require('cors')
 
@@ -68,6 +69,7 @@ app.post('/api/createUser', (req,res) => {
     } else {
         create.createUser(req.body.fname,req.body.lname,
             req.body.email,req.body.petID);
+        update.updatePets(req.body.petID, "adopted", "1");
         res.sendStatus(200);
     };
 });
@@ -113,6 +115,52 @@ app.delete('/api/:table/:id', (req,res) => {
         }
     })
 });
+
+app.put('/api/updateStaff/:id', (req,res) => {
+    util.exists("staff","username",req.body.username, (err, result) => {
+        if (err || result == true){
+            let targetColumn = req.body.targetCol;
+            let updateval = req.body.updateVal;
+            update.updateStaff(req.params.id, targetColumn, updateval);
+            res.sendStatus(200);
+        } else {
+            console.log(`Staff does not exists in staff table, update failed`);
+            res.sendStatus(400);
+        
+        }
+    })
+});
+
+app.put('/api/updateUser/:id', (req,res) => {
+    util.exists("user","username",req.body.username, (err, result) => {
+        if (err || result == true){
+            let targetColumn = req.body.targetCol;
+            let updateval = req.body.updateVal;
+            update.updateUsers(req.params.id, targetColumn, updateval);
+            res.sendStatus(200);
+        } else {
+            console.log(`User does not exists in user table, update failed`);
+            res.sendStatus(400);
+        
+        }
+    })
+});
+
+app.put('/api/updatePets/:id', (req,res) => {
+    util.exists("pet","pname",req.body.pname, (err, result) => {
+        if (err || result == true){
+            let targetColumn = req.body.targetCol;
+            let updateval = req.body.updateVal;
+            update.updatePets(req.params.id, targetColumn, updateval);
+            res.sendStatus(200);
+        } else {
+            console.log(`The given pet does not exists in pet table, update failed`);
+            res.sendStatus(400);
+        
+        }
+    })
+});
+
 
 app.get('/', (req,res) => {
     res.send("Server up");
