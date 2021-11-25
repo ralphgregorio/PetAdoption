@@ -9,13 +9,13 @@ module.exports = {
      * @param {String} username Username of staff account
      * @param {String} pass Password for staff account
      */
-   deleteStaff: (fname,lname) => {
-        let deletestaff = `DELETE FROM staff where fname = ('${fname}') AND lname=('${lname}')`
+   deleteUserOrStaff: (table,fname,lname) => {
+        let deletestaff = `DELETE FROM ${table} where fname = ('${fname}') AND lname=('${lname}')`
         sql.query(deletestaff, (err, result) => {
             if (err){
-                console.log(`delete staff error: ${err}`);
+                console.log(`delete ${table} error: ${err}`);
             } else {
-                console.log('successful deletion of staff in table');
+                console.log(`successful deletion of ${table} in table`);
             }
         });
     },
@@ -28,7 +28,7 @@ module.exports = {
      */
    deletePet: (pet_name,age,breed) => {
         
-        let deletepet = `DELETE FROM pets WHERE pet_name=('${pet_name}') AND age=('${age}') AND breed=('${breed}')`
+        let deletepet = `DELETE FROM pet WHERE pet_name=('${pet_name}') AND age=('${age}') AND breed=('${breed}')`
         sql.query(deletepet, (err, result) => {
             if (err){
                 console.log(`delete pet error: ${err}`);
@@ -39,21 +39,25 @@ module.exports = {
     },
     
     /**
-     * Deletes user(adoptive owner) in projectDatabase sql
-     * @param {String} fname First name of user
-     * @param {String} lname Last name of user
+     * Deletes by id
+     * @param {String} table table name
+     * @param {String} id  id to delete
+     * @param {Function} callback err, result callback
      */
-   deleteUser: (fname,lname) => {
-        
-        let deleteuser = `DELETE FROM users WHERE fname=('${fname}') AND lname=('${lname}')`
-        sql.query(deleteuser, (err, result) => {
+    deleteById: (table, id, callback) => {
+        let deletesql = `DELETE FROM ${table} WHERE id=('${id}')`
+        sql.query(deletesql, (err, result) => {
             if (err){
-                console.log(`delete user error: ${err}`);
+                console.log(`delete ${table} error: ${err}`);
+                callback(err,null);
             } else {
-                console.log('successful deletion of user in table');
+                console.log(`successful ${table} of pet in table`);
+                callback(null,result);
             }
         });
-    }
 
+    }
+    
+   
     
 }
