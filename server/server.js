@@ -85,6 +85,35 @@ app.post('/api/createPet', (req,res) => {
     };
 });
 
+app.delete('/api/:table', (req,res) => {
+    console.log(req.params.table);
+    if (req.params.table === "user" || req.params.table === "staff"){
+        let fname = req.body.fname;
+        let lname = req.body.lname;
+        del.deleteUserOrStaff(req.params.table, fname, lname);
+        res.sendStatus(200);
+    } else if (req.params.table === "pet"){
+        let pname = req.body.pet_name;
+        let breed = req.body.breed;
+        let age = req.body.age;
+        del.deletePet(pname,age,breed);
+        res.sendStatus(200);
+    } else {
+        res.sendStatus(404);
+    }
+
+});
+
+app.delete('/api/:table/:id', (req,res) => {
+    del.deleteById(req.params.table,req.params.id, (err, result) => {
+        if (err){
+            res.sendStatus(404);
+        } else {
+            res.sendStatus(200);
+        }
+    })
+});
+
 app.get('/', (req,res) => {
     res.send("Server up");
 });
