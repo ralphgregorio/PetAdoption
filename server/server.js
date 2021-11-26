@@ -28,6 +28,22 @@ app.get('/api/get/:table', (req,res) => {
     });
 });
 
+app.get('/api/search/:table/:column/:search', (req,res) => {
+    let filter = req.query.orderby;
+    if (!req.query.orderby){
+        filter = "asc";
+    }
+    gettable.search(req.params.table, 
+        req.params.column, req.params.search, filter, (err, result) => {
+            if (err){
+                res.send(err);
+            } else {
+                res.send(result);
+            }
+
+    })
+});
+
 app.get('/api/getParents', (req,res) => {
     gettable.getRelated((err, result) => {
         if (err){

@@ -4,7 +4,7 @@
     text-align: center;
     padding: 10px;
 }
-input {
+.adoptFormInput {
     width: 100%;
     padding: 12px 20px;
     display: inline-block;
@@ -12,7 +12,7 @@ input {
     border-radius: 4px;
     box-sizing: border-box;
 }
-button {
+.adoptFormButton {
     width: 100%;
     background-color: lightseagreen;
     color: white;
@@ -23,6 +23,6 @@ button {
     cursor: pointer;
   }
   
-  button:hover {
+.adoptFormButton:hover {
     color: black;
   }

@@ -7,14 +7,14 @@ const Pet = ({pet}) => {
    
     return (
       
-      <div class="card">
-        <img src={pet.url} class="imageCard"></img>
-        <div class="containerCard">
+      <div className="card">
+        <img src={pet.url} className="imageCard"></img>
+        <div className="containerCard">
           <h4>{pet.pet_name} - {pet.age} years old</h4>
           <h6>Breed: {pet.breed}</h6>
           <p>{pet.description}</p>
           
-          <Link to={title}> <button>Adopt Me!</button>  </Link>
+          <Link to={title}> <button className="adoptFormButton"> Adopt Me!</button>  </Link>
           
         </div>
         
