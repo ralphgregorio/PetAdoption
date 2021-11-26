@@ -38,5 +38,5 @@ VALUES ('Bruno',2,'A dog that is really big',
 
 INSERT INTO `pet` (pet_name, age, description, breed, url, adopted) 
 VALUES ('Blinded',1,'A dog that is really small',
-'Shitzu', 'https://dogtime.com/assets/uploads/gallery/shih-tzu-dog-breed-pictures/shih-tzu-breed-picture-1.jpg',1);
+'Shitzu', 'https://dogtime.com/assets/uploads/gallery/shih-tzu-dog-breed-pictures/shih-tzu-breed-picture-1.jpg',0);
 

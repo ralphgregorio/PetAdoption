@@ -55,6 +55,28 @@ module.exports = {
             }
         });
 
+    },
+
+    /**
+     * Searches database by character
+     * @param {String} table table to search
+     * @param {String} col where to search
+     * @param {String} target search characters
+     * @param {String} order Order by asc/desc
+     * @param {Function} callback Callback function returns err result
+     */
+    search: (table, col, target, order, callback) => {
+        let query = `SELECT * FROM ${table} WHERE ${col} LIKE '%${target}%' ORDER BY ${col} ${order}`;
+        sql.query(query, (err, result) => {
+            if (err){
+                console.log(`Error in searching for ${target}: ${err}`);
+                callback(err,null);
+            } else {
+                console.log(`Success in searching ${target}`);
+                callback(null,result);
+            }
+        });
+
     }
     
 

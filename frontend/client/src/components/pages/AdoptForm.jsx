@@ -1,5 +1,6 @@
-import React, { useState, useRef } from "react";
-import { useLocation, browserHistory, useNavigate  } from "react-router";
+import React, { useRef } from "react";
+import { useLocation, useNavigate  } from "react-router";
+import Navbar from "../navbar/Nav";
 import '../css/adoptform.css'
 
 const AdoptForm = () => {
@@ -35,21 +36,23 @@ const AdoptForm = () => {
   
 
     return (
-      
+      <div>
+        <Navbar />
       <div class="formAdopt">
         <title>Adopt form for {name}</title>
         <h1>{name} Adoption Form</h1><hr></hr>
           <label>First Name</label><br></br>
-          <input type="text" ref={fref}></input><br></br><br></br>
+          <input type="text" className="adoptFormInput" ref={fref}></input><br></br><br></br>
           <label>Last Name</label><br></br>
-          <input type="text"ref={lref}></input><br></br><br></br>
+          <input type="text" className="adoptFormInput" ref={lref}></input><br></br><br></br>
           <label>Email</label><br></br>
-          <input type="email" ref={eref}></input><br></br><br></br>
+          <input type="email" className="adoptFormInput" ref={eref}></input><br></br><br></br>
           <hr></hr>
 
-          <button onClick={handleSubmit}>Adopt {name}! </button>
+          <button className="adoptFormButton" onClick={handleSubmit}>Adopt {name}! </button>
         
         
+      </div>
       </div>
        
       );

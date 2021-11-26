@@ -5,7 +5,6 @@ import reportWebVitals from './reportWebVitals';
 import 'semantic-ui-css/semantic.min.css'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
-  Navigation,
   Adopt,
   Contact,
   About,
@@ -21,13 +20,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 ReactDOM.render(
   
   <Router>
-    <Navigation />
+
     <Routes>
+      <Route path="/login" element={<Login />} />
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/adopt" element={<Adopt />} />
-      <Route path="/login" element={<Login />} />
       <Route path="/adoptForm" element={<AdoptForm />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
