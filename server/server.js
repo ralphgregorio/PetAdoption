@@ -54,6 +54,17 @@ app.get('/api/getParents', (req,res) => {
     });
 });
 
+app.post('/login', (req,res) => {
+    util.authenticate(req.body.user, req.body.pass, (err,result) => {
+        if (result === true){
+            res.sendStatus(200)
+        } else {
+            res.sendStatus(401)
+        }
+    })
+    
+   
+})
 
 // To test curl -d "fname=ralph&lname=gregorio&username=hiiii&pass=123" -X POST http://localhost:3030/api/createStaff
 app.post('/api/createStaff', (req,res) => {
