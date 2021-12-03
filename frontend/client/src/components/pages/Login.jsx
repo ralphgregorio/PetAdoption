@@ -22,7 +22,7 @@ function authenticate() {
                 window.alert(`Login Fail`)
               } else {
                 window.alert(`Login Success`)
-                history("/adopt")
+                history("/ManagePage")
               }
               
             
