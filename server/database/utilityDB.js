@@ -23,6 +23,21 @@ module.exports = {
                 }
             }
         });
+    },
+    authenticate: (user, pass, callback) => {
+        let filter = `SELECT * FROM staff WHERE username=('${user}') AND pass=('${pass}')`
+        sql.query(filter, (err, result) => {
+            if (err){
+                console.log("SQL error in exists function: "+err);
+                callback(err, null);
+            } else {
+                if (result.length == 0){
+                    callback(null, false);
+                } else {
+                    callback(null, true);
+                }
+            }
+        });
     }
 
     

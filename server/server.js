@@ -90,6 +90,18 @@ app.post('/api/createUser', (req,res) => {
     };
 });
 
+app.post('/login', (req,res) => {
+    util.authenticate(req.body.user, req.body.pass, (err,result) => {
+        if (result === true){
+            res.sendStatus(200)
+        } else {
+            res.sendStatus(401)
+        }
+    })
+    
+   
+})
+
 // To test curl -d "pname=Bruno&age=2&desc=A+Cool+Breed&breed=German+Shepherd&url=http://gago.com/ulol.jpg&adopted=true" -X POST http://localhost:3030/api/createPet
 app.post('/api/createPet', (req,res) => {
     if (!req.body.pname || !req.body.age || !req.body.desc
@@ -148,7 +160,7 @@ app.put('/api/updateStaff/:id', (req,res) => {
 });
 
 app.put('/api/updateUser/:id', (req,res) => {
-    util.exists("user","username",req.body.username, (err, result) => {
+    util.exists("user","fname",req.body.fname, (err, result) => {
         if (err || result == true){
             let targetColumn = req.body.targetCol;
             let updateval = req.body.updateVal;

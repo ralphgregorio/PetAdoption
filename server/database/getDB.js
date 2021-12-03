@@ -42,8 +42,8 @@ module.exports = {
      * Joins user and pet table for users that has adopted a pet
      * @param {Function} callback Callback function returns err result
      */
-    getRelated: (callback) => {
-        let query = `SELECT pet.id, user.fname, user.lname, user.email, pet.pet_name, pet.age, pet.breed, user.timestamp`;
+     getRelated: (callback) => {
+        let query = `SELECT user.id, user.adopted_pet_id, user.fname, user.lname, user.email, pet.pet_name, pet.age, pet.breed, user.timestamp`;
         query += ` FROM pet INNER JOIN user ON user.adopted_pet_id=pet.id`;
         sql.query(query, (err, result) => {
             if (err){
